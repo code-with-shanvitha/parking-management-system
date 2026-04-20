@@ -1,0 +1,20 @@
+<form method="POST">
+    {% csrf_token %}
+    <label for="start_slot">Start Parking Slot:</label>
+    <select name="start_slot" required>
+        {% for category in categories %}
+        <option value="{{ category.parkingareanumber }}">{{ category.parkingareanumber }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="end_slot">End Parking Slot:</label>
+    <select name="end_slot" required>
+        {% for category in categories %}
+        <option value="{{ category.parkingareanumber }}">{{ category.parkingareanumber }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <button type="submit">Find Shortest Path</button>
+</form>
